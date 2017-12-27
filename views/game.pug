@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  h1= title
+  hr
+  -if( game != null ){ 
+    ul
+      li #[strong Duration:] !{game.gameDuration}
+      li #[strong Game creation:] !{game.gameCreation}
+      li #[strong Season id:] !{game.seasonId}
+  -}else{
+    p game not found
+  -}
+
+block head
+  a(href='/') Home
+  a(href='/champs') Champions
+  a(href='/items') Items
+  a.selected(href='/summoners') Summoners
+  a(href='#') Faq
+  a(href='#') Contact

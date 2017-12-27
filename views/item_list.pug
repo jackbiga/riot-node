@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1= title
+  input(type="text", id="myInput", onkeyup="searchItem()", placeholder="Search for names..",class="form-control")
+  hr
+  ul#searchUL
+    each item in item_list
+      li 
+        a(href=item.url) #{item.name} 
+        | (#{item.plaintext})
+
+    else
+      li There are no items.
+
+block head
+  a(href='/') Home
+  a(href='/champs') Champions
+  a.selected(href='/items') Items
+  a(href='/summoners') Summoners
+  a(href='#') Faq
+  a(href='#') Contact

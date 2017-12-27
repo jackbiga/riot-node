@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+  hr
+  -if( league != null ){ 
+    ul
+      h3 !{league[0].playerOrTeamName}
+      li #[strong Player or team name:] !{league[0].playerOrTeamName}
+      li #[strong League name:] !{league[0].leagueName}
+      li #[strong Tier:] !{league[0].tier}
+      li #[strong Rank:] !{league[0].rank}
+      li #[strong League Id:] !{league[0].leagueId}
+      li #[strong Wins:] !{league[0].wins}
+      li #[strong Losses:] !{league[0].losses}
+      li #[strong Queue type:] !{league[0].queueType}
+      li #[strong Veteran:] !{league[0].veteran}
+      li #[strong League points:] !{league[0].leaguePoints}
+      li #[strong Hot streak:] !{league[0].hotStreak}
+      li #[strong Player or team Id:] !{league[0].playerOrTeamId}
+      li #[strong Inactive:] !{league[0].inactive}
+      li #[strong Fresh blood:] !{league[0].freshBlood}
+  -}else{
+    p League not found
+  -}
+
+block head
+  a(href='/') Home
+  a(href='/champs') Champions
+  a(href='/items') Items
+  a.selected(href='/summoners') Summoners
+  a(href='#') Faq
+  a(href='#') Contact

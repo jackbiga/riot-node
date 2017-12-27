@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1= title
+  hr
+  -if( match != null ){ 
+    ul
+      li #[strong Lane:] !{match.matches[0].lane}
+      li 
+        -var link = "/summoners/game/"+match.matches[0].gameId;
+        a(href=link) #[strong Game:] !{match.matches[0].gameId}
+      li 
+        -var link = "/champs/"+match.matches[0].champion;
+        a(href=link) #[strong Champion:] !{match.matches[0].champion}
+      li #[strong Platform id:] !{match.matches[0].platformId}
+      li #[strong Timestamp:] !{match.matches[0].timestamp}
+      li #[strong Queue:] !{match.matches[0].queue}
+      li #[strong Role:] !{match.matches[0].role}
+      li #[strong End index:] !{match.endIndex}
+      li #[strong Start index:] !{match.startIndex}
+      li #[strong Total games:] !{match.totalGames}
+  -}else{
+    p match not found
+  -}
+
+block head
+  a(href='/') Home
+  a(href='/champs') Champions
+  a(href='/items') Items
+  a.selected(href='/summoners') Summoners
+  a(href='#') Faq
+  a(href='#') Contact

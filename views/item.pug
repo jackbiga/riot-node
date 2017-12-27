@@ -1,0 +1,25 @@
+extends layout
+
+block content
+  div.item-title
+    - var imgname ="/images/"+item.name.replace(/ /g,"_")+"_item.png";
+    img(src=imgname, alt=item.name, class="item-img")
+    h1.item-name= title
+  hr
+  ul
+    li #[strong Name:] !{item.name}
+    br
+    li #[strong Description:] 
+    li.space-left !{item.description}
+    br
+    li #[strong Plaintext:] !{item.plaintext}
+    li #[strong Id:] !{item.id}
+
+block head
+  a(href='/') Home
+  a(href='/champs') Champions
+  a.selected(href='/items') Items
+  a(href='/summoners') Summoners
+  a(href='#') Faq
+  a(href='#') Contact
+

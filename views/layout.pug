@@ -1,0 +1,72 @@
+doctype html
+html(lang='en')
+  head
+    title RiotApp
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    link(rel="stylesheet", href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js')
+    link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css")
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src="/javascripts/list.js")
+body
+
+  header.header-basic
+    .header-limiter
+      h1
+        a(href='#')
+          | Riot
+          span App
+      nav
+        block head
+
+  div(class='container-fluid', id='page-content')
+    div(class='row')
+      div(class='col-sm-2')
+        block sidebar
+          ul(class='sidebar-nav')
+            li 
+              a(href='/') Home
+            li 
+              a(href='/champs') Champions
+            li 
+              a(href='/items') Items
+            li 
+              a(href='/summoners') Summoners
+              
+      div(class='col-sm-10')
+        block content
+        
+  footer.footer-distributed
+    .footer-left
+      h3
+        | Riot
+        span App
+      p.footer-company-name Company Name © 2015
+    .footer-center
+      div
+        i.fa.fa-map-marker
+        p
+          span Via Donizetti 4/A
+          |  Lugo di Vicenza, Italy
+      div
+        i.fa.fa-phone
+        p +39 3318990529
+      div
+        i.fa.fa-envelope
+        p
+          a(href='mailto:biarellagiacomo@gmail.com') bigarellagiacomo@gmail.com
+    .footer-right
+      p.footer-company-about
+        span About the company
+        | 					This website was initially created for testing purposes, now it's a stable version and we are proud to share it with you
+      .footer-icons
+        a(href='#')
+          i.fa.fa-facebook
+        a(href='#')
+          i.fa.fa-twitter
+        a(href='#')
+          i.fa.fa-linkedin
+        a(href='#')
+          i.fa.fa-github

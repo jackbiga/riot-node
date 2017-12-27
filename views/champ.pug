@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1= title
+  hr
+  ul
+    li #[strong Name:] !{champion.name}
+    li #[strong Title:] !{champion.title}
+    li #[strong Id:] !{champion.id}
+    li #[strong Key:] !{champion.champion_key}
+
+block head
+  a(href='/') Home
+  a.selected(href='/champs') Champions
+  a(href='/items') Items
+  a(href='/summoners') Summoners
+  a(href='#') Faq
+  a(href='#') Contact
+

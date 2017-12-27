@@ -1,0 +1,30 @@
+extends layout
+
+block content
+  h1= title
+  hr
+  -if( statusCode == 200 ){
+    ul
+      li #[strong Name:] !{summoner.name}
+      li #[strong Level:] !{summoner.summonerLevel}
+      li #[strong Account Id:] !{summoner.accountId}
+      li #[strong Icon Id:] !{summoner.profileIconId}
+      li #[strong Id:] !{summoner.id}
+      li #[strong Revision date:] !{summoner.revisionDate}
+      li
+        -var link = "/summoners/league/"+summoner.id;
+        a(href=link) League
+      li
+        -var link = "/summoners/match/"+summoner.accountId;
+        a(href=link) Last match
+  -}else{
+    p Campione non trovato
+  -}
+
+block head
+  a(href='/') Home
+  a(href='/champs') Champions
+  a(href='/items') Items
+  a.selected(href='/summoners') Summoners
+  a(href='#') Faq
+  a(href='#') Contact
