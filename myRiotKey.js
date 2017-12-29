@@ -1,3 +1,3 @@
-var api_key = "RGAPI-c48e026b-8419-418f-a8b1-029fb815bc2e";
+var api_key = "RGAPI-a5bd1eb6-ad2d-4000-91d7-4b061aa43f3c";
 
 exports.myKey = api_key;
