@@ -1,7 +1,7 @@
 const Request = require('request');
 var api_key = require('../myRiotKey');
 var _ = require('lodash');
-var my_key = api_key.myKey;
+var my_key =process.env.RIOT_KEY || api_key.myKey;
 
 // Display list of all books
 exports.search_summoner = function(req, res, next){
