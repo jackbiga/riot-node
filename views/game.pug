@@ -5,8 +5,10 @@ block content
   hr
   -if( game != null ){ 
     ul
-      li #[strong Duration:] !{game.gameDuration}
-      li #[strong Game creation:] !{game.gameCreation}
+      -var gameDuration = game.gameDuration / 60
+      li #[strong Duration:] !{gameDuration}
+      -var date = new Date(game.gameCreation)
+      li #[strong Game creation:] !{date}
       li #[strong Season id:] !{game.seasonId}
   -}else{
     p game not found
