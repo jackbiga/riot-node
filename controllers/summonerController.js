@@ -47,9 +47,11 @@ exports.summoner_league = function(req, res, next) {
 };  
 
 exports.summoner_match = function(req, res, next) {
+
+    var max_matches = 10;
     
     var Id = req.params.id;
-    var request = 'https://euw1.api.riotgames.com/lol/match/v3/matchlists/by-account/'+Id+'?endIndex=1&api_key='+my_key;
+    var request = 'https://euw1.api.riotgames.com/lol/match/v3/matchlists/by-account/'+Id+'?endIndex='+max_matches+'&api_key='+my_key;
     Request.get(request, function (error, response, body) {
         if (error) {
             return next(error);

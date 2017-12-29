@@ -1,21 +1,41 @@
 extends layout
 
+mixin date(timestamp)
+  -var date = new Date(timestamp)
+  td !{date}
+
 block content
   h1= title
   hr
   -if( match != null ){ 
-    ul
-      li #[strong Lane:] !{match.matches[0].lane}
-      li 
-        -var link = "/summoners/game/"+match.matches[0].gameId;
-        a(href=link) #[strong Game:] !{match.matches[0].gameId}
-      li 
-        -var link = "/champs/"+match.matches[0].champion;
-        a(href=link) #[strong Champion:] !{match.matches[0].champion}
-      li #[strong Platform id:] !{match.matches[0].platformId}
-      li #[strong Timestamp:] !{match.matches[0].timestamp}
-      li #[strong Queue:] !{match.matches[0].queue}
-      li #[strong Role:] !{match.matches[0].role}
+    table
+      tr
+        th Id
+        th Lane
+        th Game
+        th Champion
+        th Platform id
+        th Time
+        th Queue
+        th Role
+      -var cont = 0;
+      each data in match.matches
+        tr
+          - cont++
+          td !{cont}
+          td !{data.lane}
+          td 
+            -var link = "/summoners/game/"+data.gameId;
+            a(href=link) !{data.gameId}
+          td 
+            -var link = "/champs/"+data.champion;
+            a(href=link) !{data.champion}
+          td !{data.platformId}
+          +date(data.timestamp)
+          td !{data.queue}
+          td !{data.role}
+    hr
+    ul      
       li #[strong End index:] !{match.endIndex}
       li #[strong Start index:] !{match.startIndex}
       li #[strong Total games:] !{match.totalGames}
