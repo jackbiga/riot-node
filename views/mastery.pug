@@ -1,0 +1,36 @@
+extends layout
+
+mixin date(timestamp)
+  -var date = new Date(timestamp)
+  li #[strong Last time played:] !{timestamp}
+
+block content
+  h1= title
+  hr
+  -if( mastery != null ){ 
+    -var cont = 0
+    each val in mastery
+    -if(cont>3)break
+    -cont++
+      ul
+        li #[strong Champion level:] !{val[cont].championLevel}
+        li #[strong Chest:] !{val[cont]me.chestGranted}
+        li #[strong Champion level:] !{val[cont].championPoints} 
+        li #[strong Champion level:] !{val[cont].playerId}
+        li #[strong Chest:] !{val[cont]me.championPointsUntilNextLevel}
+        li #[strong Champion level:] !{val[cont].tokensEarned}
+        li #[strong Champion level:] !{val[cont].championId}
+        +date(val[cont].lastPlayTime)
+
+
+  -}else{
+    p game not found
+  -}
+
+block head
+  a(href='/') Home
+  a(href='/champs') Champions
+  a(href='/items') Items
+  a.selected(href='/summoners') Summoners
+  a(href='#') Faq
+  a(href='#') Contact

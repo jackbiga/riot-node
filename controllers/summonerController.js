@@ -89,3 +89,24 @@ exports.summoner_game = function(req, res, next) {
     });
 
 };  
+
+exports.summoner_mastery = function(req, res, next) {
+    
+    var Id = req.params.id;
+    var request = 'https://euw1.api.riotgames.com/lol/champion-mastery/v3/champion-masteries/by-summoner/'+Id+'?api_key='+my_key;
+    Request.get(request, function (error, response, body) {
+        if (error) {
+            return next(error);
+        }
+
+        const code = response.statusCode;
+        var data = JSON.parse(body);
+
+        if(_.isEmpty(data)){
+            data = null;
+        }
+        
+        res.render('mastery', { title: "Mastery", mastery: data, statusCode: code });
+    });
+
+};  

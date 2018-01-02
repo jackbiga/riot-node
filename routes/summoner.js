@@ -13,4 +13,7 @@ router.get('/match/:id',summoner_controller.summoner_match);
 
 router.get('/game/:id',summoner_controller.summoner_game);
 
+router.get('/mastery/:id',summoner_controller.summoner_mastery);
+
+
 module.exports = router;
